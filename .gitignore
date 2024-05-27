@@ -1,0 +1,77 @@
+*~
+*.pyc
+bin
+build
+lib
+*.sublime-workspace
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.pyc
+
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Custom
+DesignProject.pro.user
+CMakeLists.txt.user
+
+# Visual studio code
+
+
+# Build folder
+build
+level
+.catkin_tools
+.vscode
+logs
+devel
+install
+log
+# Sub folder
+VideoStreamOnline
+ImageFocusSave
+Backend
+
+# Text file
+text.txt
+readme.txt
+
+# Video files
+*.avi
+*.mp4
+
+# Package wheel file
+*.whl
+
+#
+moc_*.cpp
+moc_*.h
