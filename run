@@ -1,0 +1,7 @@
+
+cd ~/alo && source ~/ws_tomo/install/setup.bash && catkin build
+source devel/setup.bash && rosrun rviz quick_render_panel_test
+
+gdb --args devel/lib/rviz/quick_render_panel_test
+(gdb) run
+(gdb) backtrace
