@@ -14,7 +14,7 @@ ApplicationWindow {
     id: loader
     anchors.fill: parent
     sourceComponent: rvizComp
-    active: false
+    // active: false
     //asynchronous: true
     // visible: status == Loader.Ready
     Text{
