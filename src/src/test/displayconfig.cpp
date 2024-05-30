@@ -36,7 +36,6 @@ bool DisplayConfig::getLoaded() const
 
 void DisplayConfig::setFrame(rviz::QuickVisualizationFrame *frame)
 {
-  qDebug()<<"DisplayConfig::setFrame";
   if (frame_ == frame) {
     return;
   }
@@ -70,7 +69,6 @@ bool DisplayConfig::frameIsInitialized()
 void DisplayConfig::initialize()
 {
   updateConfig();
-  qDebug()<<"DisplayConfig::initialize() CCCCCCCCC";
 }
 
 void DisplayConfig::updateConfig()
@@ -80,14 +78,10 @@ void DisplayConfig::updateConfig()
   }
   // auto reader = rviz::YamlConfigReader();
   // auto config = rviz::Config();
-
   rviz::YamlConfigReader reader;
   rviz::Config config;
   reader.readFile(config, source_);
-  qDebug()<<"DisplayConfig::updateConfig() 1";
-  //frame_->getManager()->load(config.mapGetChild( "Visualization Manager" ));
   frame_->getManager()->load(config.mapGetChild("Visualization Manager"));
-  qDebug()<<"DisplayConfig::updateConfig() 2";
   loaded_ = true;
   Q_EMIT loadedChanged(loaded_);
 }
