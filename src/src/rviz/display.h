@@ -41,7 +41,8 @@
 
 #include <QIcon>
 #include <QSet>
-
+#include <QDebug>
+#include <typeinfo>
 class QDockWidget;
 class QWidget;
 
