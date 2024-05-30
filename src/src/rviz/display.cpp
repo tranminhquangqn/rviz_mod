@@ -49,6 +49,7 @@
 #include "display.h"
 
 #include <boost/filesystem.hpp>
+#include <QDebug>
 
 namespace rviz
 {
@@ -302,7 +303,7 @@ inline bool isVisible(PanelDockWidget* widget)
 
 void Display::onEnableChanged()
 {
-      qDebug() << "onEnableChanged()1" << typeid(*this).name();
+  // qDebug() << "onEnableChanged()1" << typeid(*this).name();
   QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
   queueRender();
   /* We get here, by two different routes:
@@ -332,7 +333,7 @@ void Display::onEnableChanged()
     if (isEnabled()) // status might have changed, e.g. if show() failed
       onEnable();
     }
-      qDebug() << "onEnableChanged()2" << typeid(*this).name();
+      // qDebug() << "onEnableChanged()2" << typeid(*this).name();
   }
   else
   {

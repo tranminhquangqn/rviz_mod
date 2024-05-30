@@ -27,7 +27,6 @@
 #if OGRE_PLATFORM == OGRE_PLATFORM_LINUX
 #include <stdlib.h>
 
-#include <QDebug>
 #endif
 
 namespace rviz
@@ -225,13 +224,9 @@ void QtQuickOgreRenderWindow::initializeOgre()
   render_window_->setVisible(false);
   render_window_->update(false);
   QtOgreRenderWindow::initialize();
-  qDebug()<<"QtQuickOgreRenderWindow  1";
   Q_EMIT ogreInitializing();
-  qDebug()<<"QtQuickOgreRenderWindow  2";
   doneOgreContext();
-  qDebug()<<"QtQuickOgreRenderWindow  3";
   Q_EMIT ogreInitialized();
-  qDebug()<<"QtQuickOgreRenderWindow  4";
 }
 
 void QtQuickOgreRenderWindow::render()

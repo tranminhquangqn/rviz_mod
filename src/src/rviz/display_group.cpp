@@ -37,7 +37,6 @@
 #include "rviz/properties/property_tree_model.h"
 
 #include "display_group.h"
-#include <QDebug>
 
 namespace rviz
 {
@@ -100,7 +99,6 @@ void DisplayGroup::load(const Config& config)
 
     display_config_map[disp] = display_config;
   }
-  qDebug()<<"DisplayGroup::load 1";
   // now, initialize all displays and load their properties.
   for (std::map<Display*, Config>::iterator it = display_config_map.begin();
        it != display_config_map.end(); ++it)
@@ -110,7 +108,6 @@ void DisplayGroup::load(const Config& config)
     disp->initialize(context_);
     disp->load(display_config);
   }
-  qDebug()<<"DisplayGroup::load 2 end";
   if (model_)
   {
     model_->endInsert();

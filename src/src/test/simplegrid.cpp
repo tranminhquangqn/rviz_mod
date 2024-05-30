@@ -3,7 +3,6 @@
 #include <QColor>
 
 #include <ros/ros.h>
-#include <QDebug>
 
 SimpleGrid::SimpleGrid(QObject *parent)
   : QObject(parent)
@@ -76,12 +75,10 @@ void SimpleGrid::setColor(QColor color)
 
 void SimpleGrid::initialize()
 {
-  qDebug()<<"SimpleGrid::initialize() 1";
   grid_ = frame_->getManager()->createDisplay( "rviz/Grid", "My grid", true );
   ROS_ASSERT( grid_ != NULL );
 
   updateProperties();
-  qDebug()<<"SimpleGrid::initialize() 2";
 }
 
 void SimpleGrid::updateProperties()

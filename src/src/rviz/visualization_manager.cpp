@@ -84,8 +84,6 @@
 #include "rviz/visualization_manager.h"
 #include "rviz/window_manager_interface.h"
 
-#include <QDebug>
-
 namespace rviz
 {
 // helper class needed to display an icon besides "Global Options"
@@ -528,12 +526,9 @@ void VisualizationManager::emitStatusUpdate(const QString& message)
 
 void VisualizationManager::load(const Config& config)
 {
-  qDebug()<<"VisualizationManager::load 0";
   stopUpdate();
   emitStatusUpdate("Creating displays");
-  qDebug()<<"VisualizationManager::load 1";
   root_display_group_->load(config);
-  qDebug()<<"VisualizationManager::load 2";
   emitStatusUpdate("Creating tools");
   tool_manager_->load(config.mapGetChild("Tools"));
   emitStatusUpdate("Creating views");

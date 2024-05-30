@@ -94,8 +94,6 @@
 
 #include "rviz/visualization_frame.h"
 
-#include <QDebug>
-
 namespace fs = boost::filesystem;
 
 #define CONFIG_EXTENSION "rviz"
@@ -872,13 +870,11 @@ void VisualizationFrame::save(Config config)
 
 void VisualizationFrame::load(const Config& config)
 {
-  qDebug()<<"VisualizationFrame::load 1";
   manager_->load(config.mapGetChild("Visualization Manager"));
   loadPanels(config.mapGetChild("Panels"));
   loadWindowGeometry(config.mapGetChild("Window Geometry"));
   loadPreferences(config.mapGetChild("Preferences"));
   configureToolbars(config.mapGetChild("Toolbars"));
-    qDebug()<<"VisualizationFrame::load 2";
 }
 
 void VisualizationFrame::loadWindowGeometry(const Config& config)

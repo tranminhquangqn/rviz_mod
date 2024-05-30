@@ -14,8 +14,6 @@
 #include <ros/package.h>
 #include <ros/init.h>
 
-#include <QDebug>
-
 namespace rviz {
 
 QuickVisualizationFrame::QuickVisualizationFrame(QQuickItem *parent)
@@ -55,7 +53,6 @@ QuickVisualizationFrame::~QuickVisualizationFrame()
 
 void QuickVisualizationFrame::initialize(QtQuickOgreRenderWindow *render_window)
 {
-  qDebug()<<"QuickVisualizationFrame::initialize BB";
   initializing_ = true;
   // TODO: init configs
 
@@ -99,14 +96,11 @@ void QuickVisualizationFrame::onOgreInitialized()
 
   manager_->startUpdate();
   initialized_ = true;
-  qDebug()<<"NEW AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  3";
   Q_EMIT initializedChanged(initialized_);
-  qDebug()<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  4";
   setStatus("RViz is ready");
 
   connect( manager_, &VisualizationManager::preUpdate, this, &QuickVisualizationFrame::updateFps);
   connect( manager_, &VisualizationManager::statusUpdate, this, &QuickVisualizationFrame::setStatus);
-  qDebug()<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  5";
 }
 
 void QuickVisualizationFrame::updateFps()
@@ -162,13 +156,11 @@ void rviz::QuickVisualizationFrame::setRenderWindow(QtQuickOgreRenderWindow *ren
 
 void QuickVisualizationFrame::load(const Config &config)
 {
-  qDebug()<<"QuickVisualizationFrame Loading   1";
   if (!manager_) {
     qCritical("Load config called before creating visualization manager");
     return;
   }
   manager_->load( config.mapGetChild( "Visualization Manager" ));
-  qDebug()<<"QuickVisualizationFrame Loading   2";
 }
 
 void QuickVisualizationFrame::save(Config config)
