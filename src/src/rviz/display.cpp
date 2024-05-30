@@ -326,9 +326,12 @@ void Display::onEnableChanged()
     }
     else if (associated_widget_)
       associated_widget_->show();
-
+    std::string currentTypeName = typeid(*this).name();
+    std::string targetTypeName = "N18moveit_rviz_plugin21MotionPlanningDisplayE";
+    if(currentTypeName!=targetTypeName){
     if (isEnabled()) // status might have changed, e.g. if show() failed
       onEnable();
+    }
       qDebug() << "onEnableChanged()2" << typeid(*this).name();
   }
   else
