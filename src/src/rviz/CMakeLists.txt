@@ -199,3 +199,27 @@ install(FILES
 
 install(TARGETS executable
   DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
+########## The quickrviz executable ##########
+set(CMAKE_AUTORCC ON)
+
+add_executable(quick_executable quick_main.cpp quick_resources.qrc)
+
+if(NOT WIN32)
+  set_target_properties(quick_executable PROPERTIES COMPILE_FLAGS "-std=c++11")
+endif()
+
+target_link_libraries(quick_executable ${PROJECT_NAME} ${QT_LIBRARIES} ${OGRE_OV_LIBRARIES_ABS})
+
+set_target_properties(quick_executable
+                      PROPERTIES OUTPUT_NAME quick_${PROJECT_NAME})
+
+install(TARGETS quick_executable ${PROJECT_NAME}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+)
+install(DIRECTORY ./
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
+
+install(TARGETS quick_executable
+  DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
