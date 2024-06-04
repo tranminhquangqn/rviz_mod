@@ -32,12 +32,12 @@
 #include <OgreRay.h>
 #include <OgreSceneNode.h>
 #include <OgreViewport.h>
+#include <QDebug>
 
 #include "rviz/render_panel.h"
 #include "rviz/selection/selection_handler.h"
 #include "rviz/selection/selection_manager.h"
 #include "rviz/view_controller.h"
-#include "rviz/viewport_mouse_event.h"
 #include "rviz/viewport_mouse_event.h"
 #include "rviz/visualization_manager.h"
 #include "rviz/load_resource.h"
@@ -132,6 +132,7 @@ void InteractionTool::updateFocus(const ViewportMouseEvent& event)
 
 int InteractionTool::processMouseEvent(ViewportMouseEvent& event)
 {
+  qDebug()<<"InteractionTool::processMouseEvent 1";
   int flags = 0;
 
   if (event.panel->contextMenuVisible())
