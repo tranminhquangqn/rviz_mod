@@ -132,7 +132,6 @@ void InteractionTool::updateFocus(const ViewportMouseEvent& event)
 
 int InteractionTool::processMouseEvent(ViewportMouseEvent& event)
 {
-  qDebug()<<"InteractionTool::processMouseEvent 1";
   int flags = 0;
 
   if (event.panel->contextMenuVisible())
