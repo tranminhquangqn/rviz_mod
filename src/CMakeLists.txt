@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 2.8.11.2)
 project(rviz)
 
 if (POLICY CMP0042)
@@ -31,6 +31,7 @@ find_package(Boost REQUIRED
   COMPONENTS
   filesystem
   program_options
+  signals
   system
   thread
 )
@@ -132,7 +133,7 @@ set(OGRE_PLUGIN_LIBRARIES_ABS ${OGRE_PLUGIN_LIBRARIES_ABS_TMP}
 if(APPLE)
   FIND_LIBRARY(Cocoa_LIBRARIES Cocoa)
   set(rviz_ADDITIONAL_LIBRARIES ${Cocoa_LIBRARIES})
-
+  
   # This definition prevents an Apple header from defining a macro called "check", which if
   # present, collides with another function in the rviz code. See:
   # https://opensource.apple.com/source/CarbonHeaders/CarbonHeaders-18.1/AssertMacros.h
@@ -151,7 +152,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 option(UseQt5 "UseQt5" ON)
 if (UseQt5)
-  find_package(Qt5 REQUIRED COMPONENTS Core Widgets Quick OpenGL)
+  find_package(Qt5 ${QT_VERSION} REQUIRED COMPONENTS Core Widgets Quick OpenGL)
   # set variable names already used with Qt4
   set(QT_LIBRARIES Qt5::Widgets Qt5::Quick)
   set(QTVERSION ${Qt5Widgets_VERSION})
@@ -163,6 +164,7 @@ add_definitions(-DQT_NO_KEYWORDS)
 
 find_package(catkin REQUIRED
   COMPONENTS
+  angles
   cmake_modules
   geometry_msgs
   image_transport
@@ -175,6 +177,7 @@ find_package(catkin REQUIRED
   pluginlib
   python_qt_binding
   resource_retriever
+  rosbag
   rosconsole
   roscpp
   roslib
@@ -185,13 +188,19 @@ find_package(catkin REQUIRED
   tf
   urdf
   visualization_msgs
+  urdfdom_headers
 )
+
+if(${tf_VERSION} VERSION_LESS "1.11.3")
+  add_definitions("-DRVIZ_USE_BOOST_SIGNAL_1")
+endif()
 
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
 
 find_package(Eigen3 QUIET)
 if(NOT EIGEN3_FOUND)
-  #catkin_lint: ignore_once deprecated_cmake_module
+  # Fallback to cmake_modules
+  find_package(cmake_modules REQUIRED)
   find_package(Eigen REQUIRED)
   set(EIGEN3_INCLUDE_DIRS ${EIGEN_INCLUDE_DIRS})
   set(EIGEN3_LIBRARIES ${EIGEN_LIBRARIES})  # Not strictly necessary as Eigen is head only
@@ -275,9 +284,11 @@ include_directories(SYSTEM
   ${TinyXML2_INCLUDE_DIRS}
   ${urdfdom_headers_INCLUDE_DIRS}
 )
+include_directories(src ${catkin_INCLUDE_DIRS})
 #catkin_lint: ignore_once external_directory
 include_directories(src ${EXPORT_HEADER_DIR})
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
+
 
 #### If gtk ends up being the best way to get the correct window
 #### position under X11, this is how to compile it in.
