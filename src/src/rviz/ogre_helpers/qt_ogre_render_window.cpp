@@ -322,11 +322,9 @@ void QtOgreRenderWindow::setContextMenuEvent(const std::function<void (QContextM
 }
 
 void QtOgreRenderWindow::emitKeyPressEvent(QKeyEvent *event) {
-  qDebug()<<"QtOgreRenderWindow::emitKeyPressEvent 1";
   if (key_press_event_callback_) {
     key_press_event_callback_(event);
   }
-  qDebug()<<"QtOgreRenderWindow::emitKeyPressEvent 1";
 }
 
 void QtOgreRenderWindow::emitWheelEvent(QWheelEvent *event) {

@@ -55,48 +55,37 @@ ApplicationWindow {
         id: displayConfig
         frame: visualizationFrame
         //source: rvizPath + "/src/test/quick_test.rviz"
-        source:"/home/quang/Downloads/rviz_qml/src/moveit.rviz"
+        source:"/home/quang/rviz_mod/moveit.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/src/test/quick_test.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/src/test/rviz_logo.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/moveitAA.rviz"
       }
 
-      Row {
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+      // Row {
+      //   anchors.bottom: parent.bottom
+      //   anchors.horizontalCenter: parent.horizontalCenter
 
-        Button {
-          text: "Red Grid"
-          onClicked: grid.color = "red"
-        }
+      //   Button {
+      //     text: "Red Grid"
+      //     onClicked: grid.color = "red"
+      //   }
 
-        Button {
-          text: "Blue Grid"
-          onClicked: grid.color = "blue"
-        }
-        Button {
-          text: "source 1"
-          onClicked: {
-            displayConfig.source="/home/quang/Downloads/rviz_qml/src/moveit.rviz"
-          }
-        }
-      }
-    // Timer{
-    //   id: initTimer
-    //   interval: 5000
-    //   onTriggered:{
-    //     compView.visible=true
-    //   }
-    // }
-    // Component.onCompleted:{
-    //   initTimer.start()
-    // }
+      //   Button {
+      //     text: "Blue Grid"
+      //     onClicked: grid.color = "blue"
+      //   }
+      //   Button {
+      //     text: "source 1"
+      //     onClicked: {
+      //       displayConfig.source="/home/quang/Downloads/rviz_qml/src/moveit.rviz"
+      //     }
+      //   }
+      // }
     }
   }
 
   Button {
     anchors.top: parent.top
-    anchors.horizontalCenter: parent.horizontalCenter
     text: qsTr("reload")
     onClicked: {
       loader.active = false;

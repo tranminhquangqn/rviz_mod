@@ -224,7 +224,7 @@ set(rviz_QT_VERSION ${QTVERSION})
 # It is used in the extras file (processed in caktin_package(...)) and the
 # cmake code for the default plugin.
 # There is a matching instance of this in the plugin_description.xml.
-set(rviz_DEFAULT_PLUGIN_LIBRARY_TARGET_NAME rviz3_default_plugin)
+set(rviz_DEFAULT_PLUGIN_LIBRARY_TARGET_NAME rviz_default_plugin)
 
 add_service_files(
   FILES
