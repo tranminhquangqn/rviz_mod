@@ -327,6 +327,9 @@ void Display::onEnableChanged()
     }
     else if (associated_widget_)
       associated_widget_->show();
+
+
+      /////////////////////////////////////////////////////// ignore moveit here **********
     std::string currentTypeName = typeid(*this).name();
     std::string targetTypeName = "N18moveit_rviz_plugin21MotionPlanningDisplayE";
     if(currentTypeName!=targetTypeName){
