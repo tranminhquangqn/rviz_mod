@@ -55,7 +55,7 @@ ApplicationWindow {
         id: displayConfig
         frame: visualizationFrame
         //source: rvizPath + "/src/test/quick_test.rviz"
-        source:"/home/quang/rviz_mod/moveit.rviz"
+        source:"/home/tomo/rviz_mod/src/default.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/src/test/quick_test.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/src/test/rviz_logo.rviz"
         //source:"/home/quang/Downloads/rviz_qml/src/moveitAA.rviz"
