@@ -8,9 +8,14 @@ if (POLICY CMP0054)
   cmake_policy(SET CMP0054 NEW)
 endif()
 
-# set(CMAKE_CXX_STANDARD 11)
-# set(CMAKE_CXX_STANDARD_REQUIRED ON)
-# set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Specify the path to your custom Qt installation
+
+#set(Qt5_DIR "/usr/local/Qt-5.9.5/lib/cmake/Qt5")
+#set(OpenGL_GL_PREFERENCE LEGACY)
+#unset : unset CMAKE_PREFIX_PATH
+#unset : unset Qt5_DIR
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
