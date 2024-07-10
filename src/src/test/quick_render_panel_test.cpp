@@ -47,46 +47,19 @@
 
 using namespace rviz;
 
-// int main(int argc, char **argv)
-// {
-//   QApplication app( argc, argv );
-//   ros::init( argc, argv, "quick_render_panel_test" );
-
-//   rviz::QuickVisualizationFrame::registerTypes();
-//   qmlRegisterType<SimpleGrid>("MyModule", 1, 0, "SimpleGrid");
-//   qmlRegisterType<DisplayConfig>("MyModule", 1, 0, "DisplayConfig");
-
-//   QQmlApplicationEngine engine;
-//   engine.rootContext()->setContextProperty("rvizPath", QString::fromStdString(ros::package::getPath("rviz")));
-//   engine.load(QUrl("qrc:/qml/quick_render_panel_test.qml"));
-
-//   return app.exec();
-// }
 int main(int argc, char **argv)
 {
-  try {
-    QApplication app( argc, argv );
-    ros::init( argc, argv, "quick_render_panel_test" );
+  qputenv("QSG_RENDER_LOOP","basic");
+  QApplication app( argc, argv );
+  ros::init( argc, argv, "quick_render_panel_test" );
 
-    rviz::QuickVisualizationFrame::registerTypes();
-    qmlRegisterType<SimpleGrid>("MyModule", 1, 0, "SimpleGrid");
-    qmlRegisterType<DisplayConfig>("MyModule", 1, 0, "DisplayConfig");
+  rviz::QuickVisualizationFrame::registerTypes();
+  qmlRegisterType<SimpleGrid>("MyModule", 1, 0, "SimpleGrid");
+  qmlRegisterType<DisplayConfig>("MyModule", 1, 0, "DisplayConfig");
 
-    QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("rvizPath", QString::fromStdString(ros::package::getPath("rviz")));
-    engine.load(QUrl("qrc:/qml/quick_render_panel_test.qml"));
+  QQmlApplicationEngine engine;
+  engine.rootContext()->setContextProperty("rvizPath", QString::fromStdString(ros::package::getPath("rviz")));
+  engine.load(QUrl("qrc:/qml/quick_render_panel_test.qml"));
 
-    return app.exec();
-  } catch (const std::exception& e) {
-    // Handle standard library exceptions
-    qDebug() << "Standard exception caught: " << e.what();
-  } catch (const ros::Exception& e) {
-    // Handle ROS exceptions
-    qDebug() << "ROS exception caught: " << e.what();
-  } catch (...) {
-    // Handle any other exceptions
-    qDebug() << "Unknown exception caught";
-  }
-
-  return -1; // or any other appropriate error code
+  return app.exec();
 }
