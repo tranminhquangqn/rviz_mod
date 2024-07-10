@@ -8,7 +8,6 @@ if (POLICY CMP0054)
   cmake_policy(SET CMP0054 NEW)
 endif()
 
-
 # Specify the path to your custom Qt installation
 
 #set(Qt5_DIR "/usr/local/Qt-5.9.5/lib/cmake/Qt5")
