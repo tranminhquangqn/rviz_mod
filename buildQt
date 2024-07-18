@@ -1,8 +1,8 @@
-sudo apt install libssl1.0-dev
-sudo apt-get install libmysqlclient-dev 
 ./configure -opengl desktop -egl -xcb -platform linux-aarch64-gnu-g++ -no-ssl
 -nomake examples -nomake tests
 
-./configure -platform linux-aarch64-gnu-g++ -opengl es2 -xcb
-
 sudo apt install ros-melodic-desktop-full
+
+not required:
+sudo apt install libssl1.0-dev
+sudo apt-get install libmysqlclient-dev
