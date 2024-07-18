@@ -40,7 +40,6 @@
 
 #include <ros/console.h>
 #include <ros/assert.h>
-#include <QDebug>
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_LINUX
 #include <stdlib.h>
@@ -299,9 +298,7 @@ void QtOgreRenderWindow::setCameraAspectRatio()
 }
 
 void QtOgreRenderWindow::setKeyPressEventCallback(const std::function<void (QKeyEvent *)> &function) {
-  qDebug()<<"QtOgreRenderWindow::setKeyPressEventCallback 1";
   key_press_event_callback_ = function;
-  qDebug()<<"QtOgreRenderWindow::setKeyPressEventCallback 1";
 }
 
 void QtOgreRenderWindow::setWheelEventCallback(const std::function<void (QWheelEvent *)> &function) {

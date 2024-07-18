@@ -10,7 +10,7 @@ DisplayConfig::DisplayConfig(QObject *parent)
   , source_("")
   , loaded_(false)
 {
-  //source_= QString::fromStdString(getenv("HOME") + std::string("/tomo_config/moveit_ui.rviz"));
+  source_= QString::fromStdString(getenv("HOME") + std::string("/tomo_config/moveit_ui.rviz"));
   connect(this, &DisplayConfig::sourceChanged, this, &DisplayConfig::updateConfig);
 }
 

@@ -260,14 +260,12 @@ void QtQuickOgreRenderWindow::doneOgreContext()
   ogre_gl_context_->functions()->glBindBuffer(GL_COPY_READ_BUFFER, 0);
   ogre_gl_context_->functions()->glBindBuffer(GL_COPY_WRITE_BUFFER, 0);
   ogre_gl_context_->functions()->glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 0);
-  //    m_ogreContext->functions()->glBindBuffer(GL_DISPATCH_INDIRECT_BUFFER, 0);
-//  ogre_gl_context_->functions()->glBindBuffer(GL_DISPATCH_INDIRECT_BUFFER, 0);
+  ogre_gl_context_->functions()->glBindBuffer(GL_DISPATCH_INDIRECT_BUFFER, 0);
 
   ogre_gl_context_->functions()->glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
   ogre_gl_context_->functions()->glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
   ogre_gl_context_->functions()->glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
-  //    m_ogreContext->functions()->glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
-//  ogre_gl_context_->functions()->glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
+  ogre_gl_context_->functions()->glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 
   ogre_gl_context_->functions()->glBindBuffer(GL_TEXTURE_BUFFER, 0);
   ogre_gl_context_->functions()->glBindBuffer(GL_TRANSFORM_FEEDBACK_BUFFER, 0);
@@ -336,9 +334,7 @@ void QtQuickOgreRenderWindow::mouseMoveEvent(QMouseEvent *event)
 
 void QtQuickOgreRenderWindow::mousePressEvent(QMouseEvent *event)
 {
-  qDebug()<<"QtOgreRenderWindow::mousePressEvent 1";
   emitMouseEvent( event );
-  qDebug()<<"QtOgreRenderWindow::mousePressEvent 2";
 }
 
 void QtQuickOgreRenderWindow::mouseReleaseEvent(QMouseEvent *event)

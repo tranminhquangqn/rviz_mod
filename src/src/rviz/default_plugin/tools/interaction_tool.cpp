@@ -32,7 +32,6 @@
 #include <OgreRay.h>
 #include <OgreSceneNode.h>
 #include <OgreViewport.h>
-#include <QDebug>
 
 #include "rviz/render_panel.h"
 #include "rviz/selection/selection_handler.h"
