@@ -4,6 +4,10 @@ cd ~/rviz_mod && source ~/ws_tomo/install/setup.bash && catkin build
 
 source devel/setup.bash && rosrun rviz quick_render_panel_test
 
+cd ~/rviz_mod && source ~/ws_tomo/install/setup.bash && catkin build && source devel/setup.bash && rosrun rviz quick_render_panel_test
+
+cd ~/rviz_mod && source ~/ws_tomo/install/setup.bash && catkin build && source devel/setup.bash && roslaunch tomo_ui tomo_ui.launch
+
 Debug:
 gdb --args devel/lib/rviz/quick_render_panel_test
 (gdb) run

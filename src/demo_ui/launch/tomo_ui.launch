@@ -1,0 +1,5 @@
+<launch>
+  <arg name="sim" default="false"/>
+  <node name="tomo_ui" pkg="tomo_ui" type="tomo_ui" respawn="false" output="screen">
+  </node>
+</launch>
