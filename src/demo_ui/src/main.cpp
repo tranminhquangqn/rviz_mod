@@ -69,15 +69,6 @@ int main(int argc, char **argv)
   engine.rootContext()->setContextProperty("rvizPath", QString::fromStdString(ros::package::getPath("rviz")));
   engine.load(QUrl("qrc:/qml/quick_render_panel_test.qml"));
 
-  //QWidget ******************************
-  QWidget widgetWindow;
-  widgetWindow.setWindowTitle("Moveit");
-  widgetWindow.setFixedSize(700, 500);
-  widgetWindow.setWindowFlags(Qt::WindowStaysOnTopHint);//Popup
-  //Embed widget**************************
-  moveit_rviz_plugin::MotionPlanningDisplay* abc = new moveit_rviz_plugin::MotionPlanningDisplay();
-  abc->appInit(&widgetWindow);
-  widgetWindow.show();
 
   return app.exec();
 }
